@@ -1,0 +1,28 @@
+Features:
+	Set short/long-term goals
+	Enter "treats" or rewards into a raffle-type
+	Each goal can have a reward value depending on difficulty
+	Progress tracker that shows how many small, medium or big goals you've completed
+	display random encouraging message depending on goal completion
+	Allow users to  	enter price of treats, allowing them to keep track of total
+
+
+
+Possible future features:
+	User login capability
+	Ability to create profile
+	Ability to see what others have achieved globally/locally and what they've rewarded themselves with
+	Ability to add friends and track what friends have accomplished
+	Ability to comment on accomplishments
+
+Plan of action
+	Spring Boot backend
+	Vue front end
+	PostgreSQL database
+
+Database Planning && Queries
+	Each goal will be inserted with name, description, term length and difficulty
+		(UPDATE 
+
+		/** find random reward by reward size **/
+		(SELECT desc FROM rewards WHERE reward-size = ? ORDER BY random() LIMIT 1)
