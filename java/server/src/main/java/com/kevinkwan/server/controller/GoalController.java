@@ -42,6 +42,7 @@ public class GoalController {
         goalService.updateGoal(id, goal);
     }
 
+    @CrossOrigin(origins = "http://localhost:8081")
     @RequestMapping(method = RequestMethod.DELETE, value = "/goals/{id}")
     public void deleteGoal(@PathVariable Long id) {
         goalService.deleteGoal(id);
