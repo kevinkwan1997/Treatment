@@ -10,17 +10,13 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class RewardService {
 
     @Autowired
     private RewardRepository rewardRepository;
-
-    public String getRewardHighlight() {
-        String highlight = rewardRepository.getRewardHighlight();
-        return highlight;
-    }
 
     public List<String> getRewardNames() {
         List<String> names = rewardRepository.getRewardNames();
@@ -55,10 +51,32 @@ public class RewardService {
         rewardRepository.deleteById(id);
     }
 
-    public List<String> getHighDiffReward() {
-        List<String> rewards = null;
+    public Reward getHighDiffReward() {
+        List<Reward> rewards = null;
         rewards = rewardRepository.getHighDiff();
-        return rewards;
+        Random r = new Random();
+        int randomNumber = r.nextInt(rewards.size());
+        return rewards.get(randomNumber);
+    }
+
+    public Reward getMidDiffReward() {
+    	List<Reward> rewards = null;
+    	rewards = rewardRepository.getMidDiff();
+        Random r = new Random();
+        int randomNumber = r.nextInt(rewards.size());
+        return rewards.get(randomNumber);
+    }
+
+    public Reward getLowDiffReward() {
+    	List<Reward> rewards = null;
+    	rewards = rewardRepository.getLowDiff();
+        Random r = new Random();
+        int randomNumber = r.nextInt(rewards.size());
+        return rewards.get(randomNumber);
+    }
+
+    public Reward defaultReward() {
+    	return rewardRepository.getDefaultReward();
     }
 
 

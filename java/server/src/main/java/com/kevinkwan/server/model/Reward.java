@@ -76,4 +76,5 @@ public class Reward {
     public void setLevel(Integer level) {
         this.level = level;
     }
+    
 }

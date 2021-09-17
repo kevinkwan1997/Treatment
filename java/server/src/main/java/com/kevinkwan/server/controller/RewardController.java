@@ -16,12 +16,6 @@ public class RewardController {
     RewardService rewardService;
 
     @CrossOrigin(origins = "http://localhost:8081")
-    @RequestMapping("/rewards/highlight")
-    public String getRewardHighlight() {
-        return rewardService.getRewardHighlight();
-    }
-
-    @CrossOrigin(origins = "http://localhost:8081")
     @RequestMapping("/rewards")
     public List<Reward> getAllRewards() {
         return rewardService.getAllRewards();
@@ -54,7 +48,17 @@ public class RewardController {
         rewardService.deleteReward(id);
     }
 
-    @RequestMapping("/rewards/high")
-    public List<String> getHighDiffRewards() { return rewardService.getHighDiffReward();}
+    @CrossOrigin(origins = "http://localhost:8081")
+    @RequestMapping(method = RequestMethod.GET, value="/rewards/random")
+    public @ResponseBody Reward getRandomReward( @RequestParam("difficulty") Optional<Integer> difficulty) {
+    	if(difficulty.equals(3)) {
+    		return rewardService.getHighDiffReward();
+    	} else if (difficulty.equals(2)) {
+    		return rewardService.getMidDiffReward();
+    	} else if (difficulty.equals(1)) {
+    		return rewardService.getLowDiffReward();
+    	} 
+    	return rewardService.defaultReward();
+    }
 
 }
