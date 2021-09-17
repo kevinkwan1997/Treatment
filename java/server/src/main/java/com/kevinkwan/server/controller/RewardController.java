@@ -49,13 +49,13 @@ public class RewardController {
     }
 
     @CrossOrigin(origins = "http://localhost:8081")
-    @RequestMapping(method = RequestMethod.GET, value="/rewards/random")
-    public @ResponseBody Reward getRandomReward( @RequestParam("difficulty") Optional<Integer> difficulty) {
-    	if(difficulty.equals(3)) {
+    @RequestMapping(method = RequestMethod.POST, value="/rewards/random")
+    public Reward getRandomReward(@RequestBody(required=false) String difficulty) {
+    	if(Integer.parseInt(difficulty) == 3) {
     		return rewardService.getHighDiffReward();
-    	} else if (difficulty.equals(2)) {
+    	} else if (Integer.parseInt(difficulty) == 2) {
     		return rewardService.getMidDiffReward();
-    	} else if (difficulty.equals(1)) {
+    	} else if (Integer.parseInt(difficulty) == 1) {
     		return rewardService.getLowDiffReward();
     	} 
     	return rewardService.defaultReward();

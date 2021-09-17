@@ -17,14 +17,14 @@ public interface RewardRepository extends JpaRepository <Reward, Long> {
     @Query("SELECT SUM(r.price) FROM Reward r")
     public BigDecimal getTotal();
 
-    @Query(value = "SELECT r.reward_name, r.reward_desc, r.price, r.level FROM Reward r WHERE r.level = 3")
-    public List<Reward> getHighDiff();
+    @Query(nativeQuery = true, value = "SELECT * FROM Rewards r WHERE level = 3 ORDER BY random() LIMIT 1")
+    public Reward getHighDiff();
     
-    @Query(value = "SELECT r.reward_name, r.reward_desc, r.price, r.level FROM Reward r WHERE r.level = 2")
-    public List<Reward> getMidDiff(); 
+    @Query(nativeQuery = true, value = "SELECT * FROM Rewards r WHERE level = 2 ORDER BY random() LIMIT 1")
+    public Reward getMidDiff(); 
     
-    @Query(value = "SELECT r.reward_name, r.reward_desc, r.price, r.level FROM Reward r WHERE r.level = 1")
-    public List<Reward> getLowDiff();
+    @Query(nativeQuery = true, value = "SELECT * FROM Rewards r WHERE level = 1 ORDER BY random() LIMIT 1")
+    public Reward getLowDiff();
 
     @Query(nativeQuery = true, value = "SELECT * FROM Rewards r ORDER BY price ASC LIMIT 1")
     public Reward getDefaultReward();

@@ -52,27 +52,16 @@ public class RewardService {
     }
 
     public Reward getHighDiffReward() {
-        List<Reward> rewards = null;
-        rewards = rewardRepository.getHighDiff();
-        Random r = new Random();
-        int randomNumber = r.nextInt(rewards.size());
-        return rewards.get(randomNumber);
+        return rewardRepository.getHighDiff();
     }
 
     public Reward getMidDiffReward() {
-    	List<Reward> rewards = null;
-    	rewards = rewardRepository.getMidDiff();
-        Random r = new Random();
-        int randomNumber = r.nextInt(rewards.size());
-        return rewards.get(randomNumber);
+    	return rewardRepository.getMidDiff();
     }
 
     public Reward getLowDiffReward() {
-    	List<Reward> rewards = null;
-    	rewards = rewardRepository.getLowDiff();
-        Random r = new Random();
-        int randomNumber = r.nextInt(rewards.size());
-        return rewards.get(randomNumber);
+    	return rewardRepository.getLowDiff();
+
     }
 
     public Reward defaultReward() {
