@@ -1,5 +1,6 @@
 package com.kevinkwan.server.controller;
 
+import com.kevinkwan.server.model.Request;
 import com.kevinkwan.server.model.Reward;
 import com.kevinkwan.server.service.RewardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,16 +49,15 @@ public class RewardController {
         rewardService.deleteReward(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:8081")
-    @RequestMapping(method = RequestMethod.POST, value="/rewards/random")
-    public Reward getRandomReward(@RequestBody(required=false) String difficulty) {
-    	if(Integer.parseInt(difficulty) == 3) {
+    @RequestMapping(method = RequestMethod.POST, value = "/reward") 
+    public @ResponseBody Reward rewardGen(@RequestBody Request request) {
+    	if (request.getLevel() == 3) {
     		return rewardService.getHighDiffReward();
-    	} else if (Integer.parseInt(difficulty) == 2) {
+    	} else if (request.getLevel() == 2) {
     		return rewardService.getMidDiffReward();
-    	} else if (Integer.parseInt(difficulty) == 1) {
+    	} else if (request.getLevel() == 1) {
     		return rewardService.getLowDiffReward();
-    	} 
+    	}
     	return rewardService.defaultReward();
     }
 
