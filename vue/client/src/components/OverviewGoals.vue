@@ -3,8 +3,7 @@
         <div class="btn">
             <button v-on:click="toggle" type="button" class="goal-btn">Add Goals</button>
             <div v-if="watchFormVisible" id="pop-up">
-                <button id="close" v-on:click="toggle">X</button>
-                <new-goal/>
+                <new-goal id="new-goal"/>
             </div>
             <button class="goal-btn">Select Random Goal</button>
         </div>
@@ -47,24 +46,16 @@ export default {
 <style scoped>
 
 #pop-up{
-    width: 500vh;
-    position: fixed;
-    height: 300vh;
     top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
     opacity: 1;
     z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.4);
-    justify-content: center;
-}
-
-#close{
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    margin-top: 185px;
-    margin-right: -225px;
-
 }
 
 .btn{
@@ -103,7 +94,7 @@ export default {
 }
 
 .list {
-    background-color: lightblue;
+    background-color: rgb(84, 91, 94);
     border-radius: 5px;
     margin-bottom: 5px;
     align-items: center;
@@ -151,6 +142,11 @@ export default {
 .list:hover #goal-text{
     opacity: 0;
     transition: 0.6s;
+}
+
+#new-goal{
+    width: 85%;
+    height: 85%;
 }
 
 @media(min-height: 1024px){

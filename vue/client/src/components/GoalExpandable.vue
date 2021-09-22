@@ -102,7 +102,7 @@ export default {
 }
 
 #list {
-    background-color: lightblue;
+    background-color: rgb(69, 60, 75);
     border-radius: none;
     margin-bottom: 5px;
     height: 75px;
@@ -179,6 +179,7 @@ export default {
     width: 55%;
     text-overflow: ellipsis;
     overflow: hidden;
+    color: white;
 }
 
 .main {

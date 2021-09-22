@@ -43,6 +43,7 @@ export default {
     transform: translate(-50%, -50%);
     height: 85%; 
     overflow-y: hidden;
+    overflow-x: hidden;
     justify-content: space-evenly;
 
 }
@@ -52,11 +53,11 @@ export default {
 }
 
 .goals {
-  width: 45%;
+  width: 65%;
 }
 
 .rewards {
-  width: 45%;
+  width: 25%;
 }
 
 #reward-header{

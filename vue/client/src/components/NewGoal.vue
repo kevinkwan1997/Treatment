@@ -1,5 +1,6 @@
 <template>
   <form class="form">
+      <button id="close" v-on:click="toggle">X</button>
       <input type="text" class="name" placeholder="Name" v-model="goal.goal_name" required>
       <input type="text" class="desc" placeholder="Description" v-model="goal.goal_desc" required >
       <input type="range" min ="1" max="3" class="difficulty" placeholder="Difficulty" v-model="goal.difficulty">
@@ -56,19 +57,30 @@ export default {
 
 <style scoped>
 .form{
-    border-radius: 10px;
-    width: 8%;
-    height: 20%;
+    border-radius: 5px;
+    width: 100vh;
+    height: 100vh;
     background-color: white;
-    margin-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: absolute;
 }
 
 input{
     margin-top: 10px;
+    width: 45%;
+}
+
+#close{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 25px;
+
 }
 
 

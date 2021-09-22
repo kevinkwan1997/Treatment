@@ -4,9 +4,6 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     currentReward: {
-      reward_name: '',
-      reward_desc: '',
-      level: 0 
     },
     formVisible: false
   },
@@ -15,7 +12,7 @@ export default createStore({
       state.currentReward.currentReward = reward;
     },
     TOGGLE(state) {
-      state.formVisible = !state.formVisible;
+      state.formVisible = !state.formVisible
     }
     
 
